@@ -6,3 +6,5 @@ const Home = props =>(
         <p>Seja bem-vindo!</p>
     </div>
 )
+
+export default Home

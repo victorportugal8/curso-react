@@ -6,3 +6,5 @@ const About = props =>(
         <p>Nosso sistema foi criado...</p>
     </div>
 )
+
+export default About
