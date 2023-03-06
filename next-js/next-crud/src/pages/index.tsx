@@ -4,11 +4,20 @@ import Cliente from "@/core/Cliente";
 
 export default function Home() {
   const clientes = [
-    new Cliente('Gojo Satoru', 28, '1'),
-    new Cliente('Son Goku', 40, '2'),
-    new Cliente('Yami Sukehiro', 29, '1'),
-    new Cliente('Zaraki Kenpachi', 421, '1'),
+    new Cliente('Son Goku', 40, '1'),
+    new Cliente('Jiraiya', 50, '2'),
+    new Cliente('Gojo Satoru', 28, '3'),
+    new Cliente('Yami Sukehiro', 29, '4'),
   ]
+
+  function clienteSelecionado(cliente: Cliente){
+    console.log(cliente.nome)
+  }
+
+  function clienteExcluido(cliente: Cliente){
+    console.log(`Excluir ${cliente.nome}`)
+  }
+
   return(
     <div className={`
       flex justify-center items-center h-screen
@@ -16,7 +25,7 @@ export default function Home() {
       text-white
     `}>
       <Layout titulo="Cadastro Simples">
-        <Tabela clientes={clientes}></Tabela>
+        <Tabela clientes={clientes} clienteSelecionado={clienteSelecionado} clienteExcluido={clienteExcluido}/>
       </Layout>
     </div>
   )
