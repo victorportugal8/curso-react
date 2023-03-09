@@ -8,7 +8,7 @@ interface TabelaProps{
 }
 
 export default function Tabela(props: TabelaProps){
-    const exibirAcoes = props.clienteExcluido || props.clienteSelecionado
+    const exibirAcoes = props.clienteExcluido && props.clienteSelecionado
 
     function renderizarCabecalho(){
         return(
