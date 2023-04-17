@@ -2,7 +2,7 @@ import Card from './Card'
 import './Intervalo.css'
 import React from 'react'
 
-export default prosp => {
+export default props => {
     return(
         <Card title="Intervalo de Números" red>
             <div className="Intervalo">
