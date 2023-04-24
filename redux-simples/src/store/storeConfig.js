@@ -1,21 +1,8 @@
 import {legacy_createStore as createStore, combineReducers} from 'redux'
+import numerosReducers from './reducers/numeros'
 
 const reducers = combineReducers({
-    numeros: function(state, action){
-        // console.log(state, ' ', action)
-        return{
-            min: 7,
-            max: 31
-        }
-    },
-    nomes: function(state, action){
-        // console.log(state, ' ', action)
-        return[
-            'Gojo Satoru',
-            'Yami Sukehiro',
-            'Maki Zenin'
-        ]
-    }
+    numeros: numerosReducers,
 })
 
 function storeConfig(){
