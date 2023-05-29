@@ -1,11 +1,11 @@
 {
-  "name": "ciclo-pagamentos-back-end",
+  "name": "ciclos-pagamentos-back-end",
   "version": "1.0.0",
   "description": "",
   "main": "src/loader.js",
   "scripts": {
     "dev": "nodemon",
-    "production": "pm2 start src/loader.js --name ciclo-pagamentos-back-end"
+    "production": "pm2 start src/loader.js --name ciclos-pagamentos-back-end"
   },
   "keywords": [],
   "author": "",
