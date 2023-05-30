@@ -8,7 +8,17 @@ CicloPagamento.route('get', (req, res, next) =>{
         if(!err){
             res.json(docs)
         } else{
+            res.status(500).json({errors: [err]})
+        }
+    })
+})
+
+CicloPagamento.route('count', (req, res, next) =>{
+    CicloPagamento.count((error, value) =>{
+        if(error){
             res.status(500).json({errors: [error]})
+        } else{
+            res.json({value})
         }
     })
 })
