@@ -1,7 +1,9 @@
 const CicloPagamento = require('./cicloPagamento')
+const manipuladorDeErro = require('../comum/manipuladorDeErro')
 
 CicloPagamento.methods(['get', 'post', 'put', 'delete'])
 CicloPagamento.updateOptions({new: true, runValidators: true})
+CicloPagamento.after('post', manipuladorDeErro).after('put', manipuladorDeErro)
 
 CicloPagamento.route('get', (req, res, next) =>{
     CicloPagamento.find({}, (err, docs) =>{
