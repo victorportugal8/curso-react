@@ -1,20 +1,27 @@
 import React, {Component} from "react"
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
 
+import { PegaSumario } from "./dashboardActions"
 import ContentHeader from "../comum/template/contentHeader"
 import Content from "../comum/template/content"
 import ValueBox from "../comum/widget/valueBox"
 import Row from "../comum/layout/row"
 
 class Dashboard extends Component{
+    componentWillMount(){
+        this.props.PegaSumario()
+    }
     render(){
+        const {credito, debito} = this.props.sumario
         return(
             <div>
                 <ContentHeader title='Dashboard' small='Versão 1.0' />
                 <Content>
                     <Row>
-                        <ValueBox cols='12 4' color='green' icon='bank' value='R$ 10,00' text='Total de Créditos' />
-                        <ValueBox cols='12 4' color='red' icon='credit-card' value='R$ 10,00' text='Total de Débitos' />
-                        <ValueBox cols='12 4' color='blue' icon='money' value='R$ 00,00' text='Valor Consolidado' />
+                        <ValueBox cols='12 4' color='green' icon='bank' value={`R$ ${credito}`} text='Total de Créditos' />
+                        <ValueBox cols='12 4' color='red' icon='credit-card' value={`R$ ${debito}`} text='Total de Débitos' />
+                        <ValueBox cols='12 4' color='blue' icon='money' value={`R$ ${credito - debito}`} text='Valor Consolidado' />
                     </Row>
                 </Content>
             </div>
@@ -22,4 +29,7 @@ class Dashboard extends Component{
     }
 }
 
-export default Dashboard
+const mapStateToProps = state =>({sumario: state.dashboard.sumario})
+const mapDispatchToProps = dispatch =>bindActionCreators({PegaSumario}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
