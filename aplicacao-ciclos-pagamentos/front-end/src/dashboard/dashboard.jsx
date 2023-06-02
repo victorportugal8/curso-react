@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 
-import { PegaSumario } from "./dashboardActions"
+import { pegaSumario } from "./dashboardActions"
 import ContentHeader from "../comum/template/contentHeader"
 import Content from "../comum/template/content"
 import ValueBox from "../comum/widget/valueBox"
@@ -10,7 +10,7 @@ import Row from "../comum/layout/row"
 
 class Dashboard extends Component{
     componentWillMount(){
-        this.props.PegaSumario()
+        this.props.pegaSumario()
     }
     render(){
         const {credito, debito} = this.props.sumario
@@ -30,6 +30,6 @@ class Dashboard extends Component{
 }
 
 const mapStateToProps = state =>({sumario: state.dashboard.sumario})
-const mapDispatchToProps = dispatch =>bindActionCreators({PegaSumario}, dispatch)
+const mapDispatchToProps = dispatch =>bindActionCreators({pegaSumario}, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
