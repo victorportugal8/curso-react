@@ -10,6 +10,7 @@ import TabsContent from "../comum/tab/tabsContent"
 import TabHeader from "../comum/tab/tabHeader"
 import TabContent from "../comum/tab/tabContent"
 import { selectTab, showTabs } from "../comum/tab/tabActions"
+import List from './cicloPagamentoList'
 
 class CicloPagamento extends Component{
     componentWillMount(){
@@ -29,7 +30,9 @@ class CicloPagamento extends Component{
                             <TabHeader label='Excluir' icon='trash-o' target='tabDelete' />
                         </TabsHeader>
                         <TabsContent>
-                            <TabContent id='tabList'><h1>Listar</h1></TabContent>
+                            <TabContent id='tabList'>
+                                <List />
+                            </TabContent>
                             <TabContent id='tabCreate'><h1>Incluir</h1></TabContent>
                             <TabContent id='tabUpdate'><h1>Alterar</h1></TabContent>
                             <TabContent id='tabDelete'><h1>Excluir</h1></TabContent>
