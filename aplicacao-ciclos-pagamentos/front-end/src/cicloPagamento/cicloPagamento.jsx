@@ -1,4 +1,6 @@
 import React, {Component} from "react"
+import { bindActionCreators } from "redux"
+import { connect } from "react-redux"
 
 import ContentHeader from "../comum/template/contentHeader"
 import Content from "../comum/template/content"
@@ -7,8 +9,12 @@ import TabsHeader from "../comum/tab/tabsHeader"
 import TabsContent from "../comum/tab/tabsContent"
 import TabHeader from "../comum/tab/tabHeader"
 import TabContent from "../comum/tab/tabContent"
+import { selectTab } from "../comum/tab/tabActions"
 
 class CicloPagamento extends Component{
+    componentWillMount(){
+        this.props.selectTab('tabList')
+    }
     render(){
         return(
             <div>
@@ -34,4 +40,5 @@ class CicloPagamento extends Component{
     }
 }
 
-export default CicloPagamento
+const mapDispatchToProps = dispatch => bindActionCreators({selectTab}, dispatch)
+export default connect(null, mapDispatchToProps)(CicloPagamento)
