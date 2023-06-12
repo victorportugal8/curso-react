@@ -9,3 +9,10 @@ export function pegaLista(){
         payload: request
     }
 }
+
+export function create(values){
+    axios.post(`${URL_BASE}/ciclosPagamento`, values)
+    return{
+        type: 'TEMP'
+    }
+}
