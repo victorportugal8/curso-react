@@ -8,6 +8,16 @@ class CicloPagamentoList extends Component{
     componentWillMount(){
         this.props.pegaLista()
     }
+    renderRows(){
+        const list = this.props.list || []
+        return list.map(cp =>(
+            <tr key={cp._id}>
+                <td>{cp.nome}</td>
+                <td>{cp.mes}</td>
+                <td>{cp.ano}</td>
+            </tr>
+        ))
+    }
     render(){
         return(
             <div>
@@ -19,7 +29,9 @@ class CicloPagamentoList extends Component{
                             <th>Ano</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                        {this.renderRows()}
+                    </tbody>
                 </table>
             </div>
         )
