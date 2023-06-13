@@ -31,3 +31,10 @@ export function create(values){
             })
     }
 }
+
+export function showUpdate(cicloPagamento){
+    return [
+        showTabs('tabUpdate'),
+        selectTab('tabUpdate')
+    ]
+}
