@@ -21,4 +21,4 @@ class CicloPagamentoForm extends Component{
     }
 }
 
-export default reduxForm({form: 'cicloPagamentoForm'})(CicloPagamentoForm)
+export default reduxForm({form: 'cicloPagamentoForm', destroyOnUnmount: false})(CicloPagamentoForm)
