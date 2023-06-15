@@ -16,8 +16,17 @@ export function pegaLista(){
 }
 
 export function create(values){
+    return submit(values, 'post')
+}
+
+export function update(values){
+    return submit(values, 'put')
+}
+
+function submit(values, method){
     return dispatch =>{
-        axios.post(`${URL_BASE}/ciclosPagamento`, values)
+        const id = values._id ? values._id : ''
+        axios[method](`${URL_BASE}/ciclosPagamento/${id}`, values)
             .then(resp =>{
                 toastr.success('Sucesso', 'Operação realizada com sucesso!')
                 dispatch(init())
@@ -26,6 +35,7 @@ export function create(values){
                 e.response.data.errors.forEach(error => toastr.error('Erro', error))
             })
     }
+
 }
 
 export function showUpdate(cicloPagamento){
