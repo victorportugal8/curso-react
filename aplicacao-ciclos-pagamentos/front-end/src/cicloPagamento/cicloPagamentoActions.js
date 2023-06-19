@@ -23,6 +23,10 @@ export function update(values){
     return submit(values, 'put')
 }
 
+export function remove(values){
+    return submit(values, 'delete')
+}
+
 function submit(values, method){
     return dispatch =>{
         const id = values._id ? values._id : ''
@@ -42,6 +46,14 @@ export function showUpdate(cicloPagamento){
     return [
         showTabs('tabUpdate'),
         selectTab('tabUpdate'),
+        initialize('cicloPagamentoForm', cicloPagamento)
+    ]
+}
+
+export function showDelete(cicloPagamento){
+    return [
+        showTabs('tabDelete'),
+        selectTab('tabDelete'),
         initialize('cicloPagamentoForm', cicloPagamento)
     ]
 }
