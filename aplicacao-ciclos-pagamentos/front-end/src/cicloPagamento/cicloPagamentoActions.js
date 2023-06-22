@@ -5,7 +5,7 @@ import {reset as resetForm, initialize} from 'redux-form'
 import {showTabs, selectTab} from '../comum/tab/tabActions'
 
 const URL_BASE = 'http://localhost:3003/api'
-const VALORES_INICIAIS = {}
+const VALORES_INICIAIS = {creditos: [{}]}
 
 export function pegaLista(){
     const request = axios.get(`${URL_BASE}/ciclosPagamento`)

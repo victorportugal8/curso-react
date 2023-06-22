@@ -9,15 +9,13 @@ import TabsHeader from "../comum/tab/tabsHeader"
 import TabsContent from "../comum/tab/tabsContent"
 import TabHeader from "../comum/tab/tabHeader"
 import TabContent from "../comum/tab/tabContent"
-import { selectTab, showTabs } from "../comum/tab/tabActions"
-import { create, update, remove } from "./cicloPagamentoActions"
+import { init, create, update, remove } from "./cicloPagamentoActions"
 import List from './cicloPagamentoList'
 import Form from './cicloPagamentoForm'
 
 class CicloPagamento extends Component{
     componentWillMount(){
-        this.props.selectTab('tabList')
-        this.props.showTabs('tabList', 'tabCreate')
+        this.props.init()
     }
     render(){
         return(
@@ -52,5 +50,5 @@ class CicloPagamento extends Component{
     }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({selectTab, showTabs, create, update, remove}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({init, create, update, remove}, dispatch)
 export default connect(null, mapDispatchToProps)(CicloPagamento)
