@@ -6,23 +6,23 @@ import { Field, arrayInsert, arrayRemove } from "redux-form"
 import Grid from '../comum/layout/grid'
 import Input from "../comum/form/input"
 
-class ListaCredito extends Component{
+class ItemLista extends Component{
     add(index, item = {}){
         if(!this.props.readOnly){
-            this.props.arrayInsert('cicloPagamentoForm', 'creditos', index, item)
+            this.props.arrayInsert('cicloPagamentoForm', this.props.field, index, item)
         }
     }
     remove(index){
         if(!this.props.readOnly && this.props.list.length > 1){
-            this.props.arrayRemove('cicloPagamentoForm', 'creditos', index)
+            this.props.arrayRemove('cicloPagamentoForm', this.props.field, index)
         }
     }
     renderRows(){
         const list = this.props.list || []
         return list.map((item, index) =>(
             <tr key={index}>
-                <td><Field name={`creditos[${index}].nome`} component={Input} placeholder="Informe o nome" readOnly={this.props.readOnly} /></td>
-                <td><Field name={`creditos[${index}].valor`} component={Input} placeholder="Informe o valor" readOnly={this.props.readOnly} /></td>
+                <td><Field name={`${this.props.field}[${index}].nome`} component={Input} placeholder="Informe o nome" readOnly={this.props.readOnly} /></td>
+                <td><Field name={`${this.props.field}[${index}].valor`} component={Input} placeholder="Informe o valor" readOnly={this.props.readOnly} /></td>
                 <td>
                     <button type="button" className="btn btn-success" onClick={() => this.add(index + 1)}><i className="fa fa-plus"></i></button>
                     <button type="button" className="btn btn-warning" onClick={() => this.add(index + 1, item)}><i className="fa fa-clone"></i></button>
@@ -37,7 +37,7 @@ class ListaCredito extends Component{
         return(
             <Grid cols={this.props.cols}>
                 <fieldset>
-                    <legend>Créditos</legend>
+                    <legend>{this.props.legend}</legend>
                     <table className="table">
                         <thead>
                             <tr>
@@ -57,4 +57,4 @@ class ListaCredito extends Component{
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({arrayInsert, arrayRemove}, dispatch)
-export default connect(null, mapDispatchToProps)(ListaCredito)
+export default connect(null, mapDispatchToProps)(ItemLista)
