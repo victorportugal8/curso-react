@@ -9,15 +9,23 @@ import ItemLista from "./itemLista"
 import Sumario from './sumario'
 
 class CicloPagamentoForm extends Component{
+    calcularSumario(){
+        const soma = (t, v) => t + v
+        return{
+            somaCreditos: this.props.creditos.map(c => +c.valor || 0).reduce(soma),
+            somaDebitos: this.props.debitos.map(d => +d.valor || 0).reduce(soma)
+        }
+    }
     render(){
         const {handleSubmit, readOnly, creditos, debitos} = this.props
+        const {somaCreditos, somaDebitos} = this.calcularSumario()
         return(
             <form role="form" onSubmit={handleSubmit}>
                 <div className="box-body">
                     <Field name='nome' component={labelAndInput} label='Nome' cols='12 4' placeholder="Informe o nome" readOnly={readOnly} />
                     <Field name='mes' component={labelAndInput} type="number" label='Mês' cols='12 4' placeholder="Informe o mês" readOnly={readOnly} />
                     <Field name='ano' component={labelAndInput} type="number" label='Ano' cols='12 4' placeholder="Informe o ano" readOnly={readOnly} />
-                    <Sumario credito={1000} debito={100} />
+                    <Sumario credito={somaCreditos} debito={somaDebitos} />
                     <ItemLista cols='12 6' list={creditos} readOnly={readOnly} field='creditos' legend='Créditos' />
                     <ItemLista cols='12 6' list={debitos} readOnly={readOnly} field='debitos' legend='Débitos' showStatus={true} />
                 </div>
