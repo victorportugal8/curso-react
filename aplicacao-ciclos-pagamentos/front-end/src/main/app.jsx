@@ -1,4 +1,3 @@
-import '../comum/template/dependencias'
 import React from "react"
 
 import Header from '../comum/template/header'
