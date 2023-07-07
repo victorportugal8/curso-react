@@ -1,9 +1,9 @@
-const INITIAL_STATE = {sumario: {credito: 0, debito: 0}}
+const INITIAL_STATE = {summary: {credit: 0, debt: 0}}
 
-export default function(state = INITIAL_STATE, action){
-    switch(action.type){
-        case 'SUMARIO_PAGAMENTO_OBTIDO':
-            return {...state, sumario: action.payload.data}
+export default function(state = INITIAL_STATE, action) {
+    switch (action.type) {
+        case 'BILLING_SUMMARY_FETCHED':
+            return { ...state, summary: action.payload.data }
         default:
             return state
     }

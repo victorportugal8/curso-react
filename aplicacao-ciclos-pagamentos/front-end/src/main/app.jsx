@@ -1,18 +1,21 @@
-import React from "react"
+import React from 'react'
+import { HashRouter } from 'react-router-dom'
 
-import Header from '../comum/template/header'
-import Sidebar from '../comum/template/sidebar'
-import Footer from '../comum/template/footer'
-import Mensagens from '../comum/msg/mensagens'
+import Header from '../common/template/header'
+import SideBar from '../common/template/sideBar'
+import Footer from '../common/template/footer'
+import Messages from '../common/msg/messages'
 
-export default props =>(
-    <div className="wrapper">
-        <Header />
-        <Sidebar />
-        <div className="content-wrapper">
-            {props.children}
+import Routes from './routes'
+
+export default props => (
+    <HashRouter>
+        <div className='wrapper'>
+            <Header />
+            <SideBar />
+            <Routes />
+            <Footer />
+            <Messages />
         </div>
-        <Footer />
-        <Mensagens />
-    </div>
+    </HashRouter>
 )

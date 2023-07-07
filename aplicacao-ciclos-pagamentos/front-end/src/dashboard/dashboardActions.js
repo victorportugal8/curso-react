@@ -1,11 +1,10 @@
-import axios from "axios"
+import axios from 'axios'
+const BASE_URL = 'http://localhost:3003/api'
 
-const URL_BASE = 'http://localhost:3003/api'
-
-export function pegaSumario(){
-    const request = axios.get(`${URL_BASE}/ciclosPagamento/sumario`)
-    return{
-        type: 'SUMARIO_PAGAMENTO_OBTIDO',
+export function getSummary() {
+    const request = axios.get(`${BASE_URL}/billingCycles/summary`)
+    return {
+        type: 'BILLING_SUMMARY_FETCHED',
         payload: request
     }
 }
