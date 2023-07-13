@@ -34,6 +34,9 @@ module.exports = {
                 'css-loader', //Interpreta @import, url(), etc...
                 'sass-loader',
             ]
+        }, {
+            test: /\.(png|svg|jpg|gif)$/,
+            use: ['file-loader']
         }]
     }
 }
