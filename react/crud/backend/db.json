@@ -1,0 +1,11 @@
+{
+    "users": [{
+        "id": "1",
+        "name": "Satoru Gojo",
+        "email": "gojosatoru@jjk.jp"
+    }, {
+        "id": "2",
+        "name": "Son Goku",
+        "email": "gokuson@dbz.jp"
+    }]
+}
