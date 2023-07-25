@@ -1,11 +1,12 @@
 import './main.css'
+
 import React from 'react'
 
 import Header from './Header'
 
 export default props =>
     <React.Fragment>
-        <Header />
+        <Header {...props} />
         <main className="content">
             Conteúdo
         </main>
